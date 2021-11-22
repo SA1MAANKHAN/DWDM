@@ -66,16 +66,9 @@ model <- naiveBayes (status ~ ., data = data_train)
 
 model
 
-plot(model) 
+p1 <- predict(model, data_test)
 
-
-
-predict(model, data_test)
-
-
-p1 <- predict(model, data_train)
-
-(tab1 <- table(p1, data_train$status))
+(tab1 <- table(p1, data_test$status))
 
 1 - sum(diag(tab1)) / sum(tab1)
 
